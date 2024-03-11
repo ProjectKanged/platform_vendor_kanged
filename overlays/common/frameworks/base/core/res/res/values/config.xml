@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The CyanogenMod Project
+               (C) 2017-2024 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Package name(s) containing location provider support.
+         These packages can contain services implementing location providers,
+         such as the Geocode Provider, Network Location Provider, and Fused
+         Location Provider.
+         The signatures of packages named below and installed in the system
+         image are "allowed" signatures.
+         The location framework checks ALL installed packages if they provide
+         an implementation of a specific location provider and compares the
+         signature of the package with the list of allowed signatures.
+
+         The location framework has support for installation of new or
+         updated location providers at run-time. However the new package must
+         have a signature that matches the signature of at least one package
+         on this list which is installed in the system image.
+
+         The chosen package for the specific location provider does not
+         depend on the order of this list. -->
+    <string-array name="config_locationProviderPackageNames" translatable="false">
+        <!-- The Google provider -->
+        <item>com.google.android.gms</item>
+        <!-- The standard AOSP fused location provider -->
+        <item>com.android.location.fused</item>
+        <!-- The MicroG Unified location provider -->
+        <item>org.microg.nlp</item>
+    </string-array>
+
+    <string-array name="config_locationExtraPackageNames" translatable="false">
+        <!-- Bluetooth -->
+        <item>com.android.bluetooth</item>
+        <!-- TeleService -->
+        <item>com.android.phone</item>
+        <!-- ImsService -->
+        <item>com.shannon.imsservice</item>
+    </string-array>
+
+    <!-- Enable lockscreen rotation by default -->
+    <bool name="config_enableLockScreenRotation">true</bool>
+
+    <!-- Set this to true to enable the platform's auto-power-save modes like doze and
+         app standby.  These are not enabled by default because they require a standard
+         cloud-to-device messaging service for apps to interact correctly with the modes
+         (such as to be able to deliver an instant message to the device even when it is
+         dozing).  This should be enabled if you have such services and expect apps to
+         correctly use them when installed on your device.  Otherwise, keep this disabled
+         so that applications can still use their own mechanisms. -->
+    <bool name="config_enableAutoPowerModes">true</bool>
+
+    <!-- If this is true, long press on power button will be available from a
+         non-interactive state. -->
+    <bool name="config_supportLongPressPowerWhenNonInteractive">true</bool>
+
+    <!--  Whether Multiuser UI should be shown -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
+    <!--  Maximum number of supported users -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+   <!-- Set icon mask to circle -->
+   <string name="config_icon_mask" translatable="false">"M50 0A50 50,0,1,1,50 100A50 50,0,1,1,50 0"</string>
+
+    <!-- Whether action menu items should be displayed in ALLCAPS or not.
+         Defaults to true. If this is not appropriate for specific locales
+         it should be disabled in that locale's resources. -->
+    <bool name="config_buttonTextAllCaps">false</bool>
+
+    <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
+    <bool name="config_useRoundIcon">true</bool>
+
+    <!-- Whether or not we should show the option to show battery percentage -->
+    <bool name="config_battery_percentage_setting_available">true</bool>
+
+    <!-- List of packages that can use the Conversation space for their category messages
+    notifications until they target R -->
+    <string-array name="config_notificationMsgPkgsAllowedAsConvos" translatable="false">
+        <item>com.facebook.orca</item>
+        <item>com.instagram.android</item>
+        <item>com.whatsapp</item>
+        <item>com.snapchat.android</item>
+        <item>jp.naver.line.android</item>
+        <item>com.kakao.talk</item>
+        <item>com.discord</item>
+        <item>org.thoughtcrime.securesms</item>
+        <item>com.groupme.android</item>
+        <item>org.telegram.messenger</item>
+        <item>com.twitter.android</item>
+        <item>com.viber.voip</item>
+        <item>com.linkedin.android</item>
+        <item>com.tencent.mm</item>
+        <item>nekox.messenger</item>
+        <item>org.telegram.plus</item>
+        <item>org.thunderdog.challegram</item>
+        <item>im.vector.app</item>
+        <item>cx.ring</item>
+        <item>org.briarproject.briar.android</item>
+    </string-array>
+
+    <!-- Flag indicating which package name can access DeviceConfig table -->
+    <string name="config_deviceConfiguratorPackageName" translatable="false">com.google.android.gms</string>
+
+    <!-- Wallpaper cropper package. Used as the default cropper if the active launcher doesn't
+         handle wallpaper cropping.
+    -->
+    <string name="config_wallpaperCropperPackage" translatable="false">com.google.android.apps.wallpaper</string>
+
+    <!-- Control the behavior when the user long presses the power button.
+            0 - Nothing
+            1 - Global actions menu
+            2 - Power off (with confirmation)
+            3 - Power off (without confirmation)
+            4 - Go to voice assist
+            5 - Go to assistant (Settings.Secure.ASSISTANT)
+    -->
+    <integer name="config_longPressOnPowerBehavior">1</integer>
+
+    <!-- Control the behavior when the user presses the power and volume up buttons together.
+            0 - Nothing
+            1 - Mute toggle
+            2 - Global actions menu
+    -->
+    <integer name="config_keyChordPowerVolumeUp">1</integer>
+
+    <bool name="config_volumeHushGestureEnabled">true</bool>
+
+    <!-- Whether this device is supporting the microphone toggle -->
+    <bool name="config_supportsMicToggle">true</bool>
+    <!-- Whether this device is supporting the camera toggle -->
+    <bool name="config_supportsCamToggle">true</bool>
+
+    <!-- Control the default night mode to use when there is no other mode override set.
+         One of the following values (see UiModeManager.java):
+             0 - MODE_NIGHT_AUTO
+             1 - MODE_NIGHT_NO
+             2 - MODE_NIGHT_YES
+    -->
+    <integer name="config_defaultNightMode">2</integer>
+
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- The default value used for RawContacts.ACCOUNT_NAME when contacts are inserted without this
+         column set. These contacts are stored locally on the device and will not be removed even
+         if no android.account.Account with this name exists. A null string will be used if the
+         value is left empty. When this is non-empty then config_rawContactsLocalAccountType
+         should also be non-empty.  -->
+    <string name="config_rawContactsLocalAccountName" translatable="false">DEVICE</string>
+
+    <!-- The default value used for RawContacts.ACCOUNT_TYPE when contacts are inserted without this
+         column set. These contacts are stored locally on the device and will not be removed even
+         if no android.account.Account with this type exists. A null string will be used if the
+         value is left empty.  When this is non-empty then config_rawContactsLocalAccountName
+         should also be non-empty.-->
+    <string name="config_rawContactsLocalAccountType" translatable="false">com.android.contacts</string>
+
+    <!-- Default component for QR code scanner -->
+    <string name="config_defaultQrCodeComponent" translatable="false">com.google.android.gms/.mlkit.barcode.ui.PlatformBarcodeScanningActivityProxy</string>
+
+    <!-- Name of the font family to use in the default lockscreen clock -->
+    <string name="config_clockFontFamily" translatable="false" />
+
+    <bool name="config_supportSmartPixels">true</bool>
+
+    <!-- The type of the light sensor to be used by the display framework for things like
+         auto-brightness. If unset, then it just gets the default sensor of type TYPE_LIGHT. -->
+    <string name="config_displayLightSensorType" translatable="false">android.sensor.light</string>
+
+    <!-- The package name for the system's wallpaper effects generation service.
+    This service returns wallpaper effects results.
+    This service must be trusted, as it can be activated without explicit consent of the user.
+    If no service with the specified name exists on the device, wallpaper effects
+    generation service will be disabled.
+    Example: "com.android.intelligence/.WallpaperEffectsGenerationService" -->
+    <string name="config_defaultWallpaperEffectsGenerationService" translatable="false">com.google.android.as/com.google.android.apps.miphone.aiai.app.wallpapereffects.AiAiWallpaperEffectsGenerationService</string>
+
+     <bool name="config_appCompatUserAppAspectRatioSettingsIsEnabled">true</bool>
+     <bool name="config_appCompatUserAppAspectRatioFullscreenIsEnabled">true</bool>
+
+     <bool name="config_faceAuthDismissesKeyguard">false</bool>
+
+    <string name="config_systemAmbientAudioIntelligence">com.google.android.as</string>
+
+    <!-- Controls the navigation bar interaction mode:
+         0: 3 button mode (back, home, overview buttons)
+         1: 2 button mode (back, home buttons + swipe up for overview)
+         2: gestures only for back, home and overview -->
+    <integer name="config_navBarInteractionMode">2</integer>
+
+    <string name="config_bodyFontFamily">googlesans-text</string>
+    <string name="config_bodyFontFamilyMedium">googlesans-text-medium</string>
+    <string name="config_clockFontFamily">googlesans-clock</string>
+    <string name="config_headlineFontFamily">googlesans</string>
+    <string name="config_headlineFontFamilyMedium">googlesans-medium</string>
+    <string name="config_headlineFontFeatureSettings">ss03</string>
+
+    <!-- Define device configs on boot -->
+    <string-array name="global_device_configs_override">
+        <!-- Machine learning back gesture (requires TensorFlow model) -->
+        <item>systemui/use_back_gesture_ml_model=true</item>
+        <item>systemui/back_gesture_ml_model_name=backgesture</item>
+        <item>systemui/back_gesture_ml_model_threshold=0.8</item>
+
+        <!-- Notifications -->
+        <item>notification_assistant/generate_actions=true</item>
+        <item>notification_assistant/generate_replies=true</item>
+
+        <!-- Pixel Launcher -->
+        <item>launcher/enable_one_search=true</item>
+        <item>launcher/ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER=true</item>
+        <item>launcher/ENABLE_SMARTSPACE_ENHANCED=true</item>
+        <item>launcher/ENABLE_WIDGETS_PICKER_AIAI_SEARCH=true</item>
+        <item>launcher/ENABLE_QUICK_LAUNCH_V2=true</item>
+        <item>launcher/GBOARD_UPDATE_ENTER_KEY=true</item>
+        <item>launcher/enable_quick_launch_v2=true</item>
+
+        <!-- Pixel Launcher (Recents) -->
+        <item>device_personalization_services/Overview__enable_barcode_detection=false</item>
+        <item>device_personalization_services/Overview__enable_image_search=false</item>
+        <item>device_personalization_services/Overview__enable_lens_r_overview_long_press=true</item>
+        <item>device_personalization_services/Overview__enable_lens_r_overview_select_mode=true</item>
+        <item>device_personalization_services/Overview__enable_lens_r_overview_translate_action=true</item>
+
+        <!-- Privacy -->
+        <item>privacy/location_accuracy_enabled=true</item>
+        <item>privacy/permissions_hub_enabled=true</item>
+        <item>privacy/permissions_hub_2_enabled=true</item>
+        <item>privacy/privacy_dashboard_7_day_toggle=true</item>
+        <item>privacy/warning_banner_enabled=true</item>
+        <item>privacy/safety_protection_enabled=true</item>
+
+        <!-- System Ui -->
+        <item>systemui/quick_access_wallet_enabled=true</item>
+        <item>systemui/enable_screenshot_corner_flow=true</item>
+        <item>systemui/enable_screenshot_notification_smart_actions=true</item>
+        <item>systemui/enable_screenshot_scrolling=true</item>
+
+        <!-- Enable app cloning  -->
+        <item>app_cloning/cloned_apps_enabled=true</item>
+        <item>app_cloning/delete_all_app_clones_enabled=true</item>
+        <item>app_cloning/enable_app_cloning_building_blocks=true</item>
+
+        <item>window_manager/enable_app_compat_aspect_ratio_user_settings=true</item>
+        <item>window_manager/enable_app_compat_user_aspect_ratio_fullscreen=true</item>
+
+    </string-array>
+
+    <string-array name="config_pihooks_exclude_list" translatable="false">
+        <item>com.google.ar.core</item>
+        <item>com.google.android.GoogleCamera</item>
+        <item>com.google.android.apps.photos</item>
+        <item>com.google.android.gms</item>
+        <item>com.google.android.setupwizard</item>
+        <item>com.android.vending</item>
+    </string-array>
+</resources>
